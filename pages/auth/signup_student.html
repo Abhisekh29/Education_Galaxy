@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up | Education Galaxy (Student)</title>
+  <link rel="stylesheet" href="/css/style.css"/>
+  <script defer src="/js/signup_student.js"></script>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">Education Galaxy</div>
+    <div class="auth-buttons">
+      <a href="login.html" class="btn-light">Login</a>
+    </div>
+  </header>
+
+  <!-- Signup Section -->
+  <section class="auth-section">
+    <div class="auth-form">
+      <h2>Create an Account (Student)</h2>
+      <form id="signupForm" method="POST">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" required/>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required/>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required/>
+
+        <label for="confirm-password">Confirm Password</label>
+        <input type="password" id="confirm-password" name="confirm-password" required/>
+
+        <button type="submit" class="btn-purple">Sign Up</button>
+      </form>
+      <div class="auth-footer">
+        <p>Already have an account? <a href="login.html">Login here</a></p>
+        <p>Are you a teacher? <a href="signup_teacher.html">Sign up as a Teacher</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Education Galaxy. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </div>
+  </footer>
+
+</body>
+</html>

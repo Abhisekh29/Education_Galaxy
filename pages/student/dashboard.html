@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Dashboard - Education Galaxy</title>
+  <link rel="stylesheet" href="/css/dashstud.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">Education Galaxy</div>
+    <div class="nav-links">
+      <a href="">Dashboard</a>
+      <a href="/pages/auth/login.html">Logout</a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <section class="dashboard-section">
+      <h1>Student Dashboard</h1>
+      <p class="student-name">Welcome, <span id="studentName">Loading...</span></p>
+
+      <!-- Available Courses -->
+      <h2 style="margin-top: 30px; margin-bottom: 15px;">Available Courses</h2>
+      <div class="courses-container" id="availableCourses">
+        <!-- Dynamic available courses will be added here -->
+      </div>
+
+      <!-- Enrolled Courses -->
+      <h2 id="enrolledTitle" style="margin-top: 50px; margin-bottom: 15px;">My Courses</h2>
+      <div class="courses-container" id="enrolledCourses">
+        <!-- Dynamic enrolled courses will be added here -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Education Galaxy. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="#">Home</a>
+      <a href="#">Support</a>
+      <a href="#">Contact</a>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="/js/student_dashboard.js"></script> <!-- Your JavaScript file -->
+</body>
+</html>

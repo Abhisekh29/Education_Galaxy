@@ -1,0 +1,248 @@
+/* Basic Setup */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+html, body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #f9f9f9;
+}
+
+main {
+  flex: 1;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: #6c63ff;
+}
+
+.nav-links {
+  display: flex;
+  gap: 15px;
+}
+
+.nav-links a {
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.nav-links a:first-child {
+  background-color: #6c63ff;
+  color: white;
+}
+
+.nav-links a:last-child {
+  background-color: #ff4d4d;
+  color: white;
+}
+
+/* Dashboard */
+.dashboard-section {
+  padding: 40px 80px;
+}
+
+.dashboard-section h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.teacher-name {
+  margin-bottom: 30px;
+  font-weight: 500;
+}
+
+.dashboard-actions {
+  margin-bottom: 30px;
+}
+
+.btn-purple {
+  background: #6c63ff;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-light,
+.btn-dark {
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 500;
+  margin-right: 10px;
+  cursor: pointer;
+  text-align: center;
+  border: 1px solid transparent; /* Reset any existing border */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+  width: auto;
+}
+
+/* Light button */
+.course-actions .btn-light {
+  background: white;
+  color: #6c63ff;
+  border: 1px solid #6c63ff; /* Blue border for light button */
+}
+
+.course-actions .btn-light:hover {
+  background: #6c63ff;
+  color: white;
+}
+
+/* Dark button */
+.course-actions .btn-dark {
+  background: #ff0000;
+  color: white;
+  border: none; /* No border for dark button */
+}
+
+.course-actions .btn-dark:hover {
+  background: rgb(212, 0, 0); /* Slightly darker blue on hover */
+}
+
+.courses-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.course-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  width: 280px;
+}
+
+.course-card h3 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.course-card p {
+  margin-bottom: 15px;
+  color: #555;
+}
+
+.course-actions {
+  display: flex;
+}
+
+/* Footer */
+footer {
+  padding: 20px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  border-top: 1px solid #eee;
+  font-size: 0.85rem;
+  color: #888; /* subtle grey */
+  flex-shrink: 0;
+}
+
+.footer-links a {
+  margin-left: 20px;
+  color: #6c63ff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+
+/* Modal */
+.modal {
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.6); /* Slightly darker background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 0 auto;
+  padding: 40px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 800px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Adding shadow for depth */
+  position: relative;
+  animation: modal-fade-in 0.3s ease-in-out; /* Smooth fade-in */
+}
+
+@keyframes modal-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.close {
+  color: #6c63ff;
+  font-size: 30px;
+  font-weight: bold;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close:hover,
+.close:focus {
+  color: #ff4d4d; /* Red color on hover for the close button */
+}
+
+/* Modal Content */
+
+.modal-content p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* Modal Title */
+.modal-title {
+  font-size: 2rem; /* Increased size */
+  color: #6c63ff; /* Change the color to the primary theme color */
+  font-weight: 700; /* Bold text */
+  margin-bottom: 20px;
+  text-align: center; /* Center the title */
+}
+
+/* Course Description */
+#courseDescription {
+  font-size: 1.2rem; /* Set a reasonable size */
+  color: #555; /* A lighter grey for the description */
+  margin-bottom: 20px;
+  text-align: center; /* Center the description */
+  line-height: 1.6; /* Increase line spacing for readability */
+}

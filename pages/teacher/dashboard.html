@@ -1,0 +1,136 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Teacher Dashboard - Education Galaxy</title>
+  <link rel="stylesheet" href="/css/dashboard.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  Header
+  <header class="navbar">
+    <div class="logo">Education Galaxy</div>
+    <div class="nav-links">
+      <a href="#">Dashboard</a>
+      <a href="/pages/auth/login.html">Logout</a>
+    </div>
+  </header>
+
+  Main Content
+  <main>
+    <section class="dashboard-section">
+      <h1>Teacher Dashboard</h1>
+      <p class="teacher-name">Welcome, <span id="teacherName">Loading...</span></p>
+
+      <div class="dashboard-actions">
+        <button class="btn-purple" onclick="window.location.href='/pages/teacher/create-courses.html';">Create Course</button>
+      </div>
+
+      <div class="courses-container">
+        Dynamic course cards will appear here
+        <div class="course-card">
+          <h3>Sample Course</h3>
+          <p>Short description of the course.</p>
+          <div class="course-actions">
+            <button class="btn-light">View Course</button>
+            <button class="btn-dark">Manage</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  Footer
+  <footer>
+    <p>© 2025 Education Galaxy. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="#">Home</a>
+      <a href="#">Support</a>
+      <a href="#">Contact</a>
+    </div>
+  </footer>
+
+  <script>
+    Example dynamic name fetch simulation
+    document.getElementById("teacherName").innerText = "Mr. Abhisekh Roy";
+  </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Teacher Dashboard - Education Galaxy</title>
+  <link rel="stylesheet" href="/css/dashboard.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header -->
+  <header class="navbar">
+    <div class="logo">Education Galaxy</div>
+    <div class="nav-links">
+      <a href="">Dashboard</a>
+      <a href="/pages/auth/login.html">Logout</a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <section class="dashboard-section">
+      <h1>Teacher Dashboard</h1>
+      <p class="teacher-name">Welcome, <span id="teacherName">Loading...</span></p> <!-- Ensure this is the correct ID -->
+
+      <div class="dashboard-actions">
+        <button class="btn-purple" onclick="window.location.href='/pages/teacher/create-courses.html';">Create Course</button>
+      </div>
+
+      <div class="courses-container" id="courses-container">
+        <!-- Dynamic course cards will appear here -->
+        <!-- Example placeholder content -->
+        <!-- <div class="course-card">
+          <h3>Sample Course</h3>
+          <p>Short description of the course.</p>
+          <div class="course-actions">
+            <button class="btn-light">View Course</button>
+            <button class="btn-dark">Manage</button>
+          </div>
+        </div>
+      </div> -->
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Education Galaxy. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="#">Home</a>
+      <a href="#">Support</a>
+      <a href="#">Contact</a>
+    </div>
+  </footer>
+
+  <div id="toast" style="visibility:hidden; min-width: 250px; margin-left: -125px; background-color: #333; color: #fff; text-align: center; border-radius: 5px; padding: 16px; position: fixed; z-index: 1000; left: 50%; bottom: 60px; font-size: 17px;">
+    Toast message
+  </div> 
+
+  <!-- Modal for course details -->
+  <div id="courseModal" class="modal" style="display:none;">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h1 id="courseTitle" class="modal-title">Course Title</h1> <!-- Changed to h1 for prominence -->
+      <p id="courseDescription">Course Description</p>
+
+      <!-- Video Container -->
+      <div id="videoContainer"></div>
+
+      <!-- Quizzes -->
+      <div id="quizContainer"></div>
+    </div>
+  </div>
+
+  <script src="/js/teacher_dashboard.js"></script> <!-- Your JS script here -->
+</body>
+</html>

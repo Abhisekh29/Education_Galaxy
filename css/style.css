@@ -1,0 +1,227 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  body {
+    background: #fff;
+    color: #1a1a1a;
+    line-height: 1.6;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  }
+  
+  .logo {
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: #6c63ff;
+  }
+  
+  nav a {
+    margin: 0 15px;
+    font-weight: 500;
+  }
+  
+  .auth-buttons .btn-light,
+  .auth-buttons .btn-dark {
+    padding: 10px 18px;
+    border-radius: 6px;
+    margin-left: 10px;
+    font-weight: 500;
+  }
+  
+  .btn-light {
+    border: 1px solid #6c63ff;
+    color: #6c63ff;
+    background: white;
+  }
+  
+  .btn-dark {
+    background: #6c63ff;
+    color: white;
+  }
+  
+  .btn-purple {
+    background: #6c63ff;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+  }
+  
+  .hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px 80px;
+    background: linear-gradient(to right, #3a0ca3, #6c63ff);
+    color: white;
+  }
+  
+  .hero-text h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .hero-text p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    max-width: 500px;
+  }
+  
+  .hero-img img {
+    width: 500px;
+    border-radius: 12px;
+  }
+  
+  .features {
+    padding: 60px 80px;
+    text-align: center;
+    background: #f9f9f9;
+  }
+  
+  .features h2 {
+    font-size: 2.5rem;
+  }
+  
+  .features .subtitle {
+    margin: 15px 0 40px;
+    color: #666;
+  }
+  
+  .feature-cards {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+  }
+  
+  .card {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    width: 280px;
+  }
+  
+  .card img {
+    width: 40px;
+    margin-bottom: 15px;
+  }
+  
+  .cta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px 80px;
+    background: #ede9fe;
+  }
+  
+  .cta-text {
+    max-width: 500px;
+  }
+  
+  .cta-text h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .cta-text p {
+    margin-bottom: 25px;
+  }
+  
+  .cta-buttons .btn-purple {
+    margin-right: 15px;
+  }
+  
+  .cta-img img {
+    width: 400px;
+    border-radius: 12px;
+  }
+  
+  footer {
+    padding: 30px 80px;
+    display: flex;
+    justify-content: space-between;
+    background: #fff;
+    border-top: 1px solid #eee;
+  }
+  
+  .footer-links a {
+    margin-left: 20px;
+    color: #6c63ff;
+  }
+  
+
+  .auth-section {
+    padding: 60px 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f9f9f9;
+  }
+  
+  .auth-form {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .auth-form h2 {
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+    color: #6c63ff;
+  }
+  
+  .auth-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  
+  .auth-form input {
+    width: 100%;
+    padding: 12px 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  
+  .auth-form button {
+    width: 100%;
+    padding: 12px 20px;
+    background: #6c63ff;
+    color: white;
+    border-radius: 8px;
+    font-weight: 600;
+  }
+  
+  .auth-footer {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .auth-footer a {
+    color: #6c63ff;
+  }
+  
+  .auth-footer p {
+    margin-top: 10px;
+  }
+  

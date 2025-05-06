@@ -1,0 +1,206 @@
+/* Basic Setup */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+html, body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #f9f9f9;
+}
+
+main {
+  flex: 1;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: #6c63ff;
+}
+
+.nav-links {
+  display: flex;
+  gap: 15px;
+}
+
+.nav-links a {
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.nav-links a:first-child {
+  background-color: #6c63ff;
+  color: white;
+}
+
+.nav-links a:last-child {
+  background-color: #ff4d4d;
+  color: white;
+}
+
+/* Form Styling */
+.create-course-section {
+  padding: 60px 80px;
+  background: #f9f9f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.create-course-form {
+  background: white;
+  padding: 40px 50px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 900px;
+  margin: 20px;
+}
+
+.create-course-form h2 {
+  font-size: 2.2rem;
+  color: #6c63ff;
+  font-weight: 700;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.create-course-form h4 {
+  /* font-size: 1.3rem; */
+  color: #444;
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+
+.create-course-form label {
+  display: block;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.create-course-form input,
+.create-course-form textarea {
+  width: 100%;
+  padding: 12px 20px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Override for radio buttons inside quiz options */
+.quiz-item input[type="radio"] {
+    width: auto;
+    margin: 12px;
+}
+
+.quiz-item li {
+    list-style: none;
+    display: flex;
+    align-items: center;
+  }
+  
+.create-course-form button {
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  background: #6c63ff;
+  color: white;
+  border-radius: 6px;
+  font-weight: 600;
+  /* font-size: 1rem; */
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.create-course-form button:hover {
+  background: #5a54e6;
+}
+
+.dynamic-section {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.video-item,
+.quiz-item {
+  border: 1px solid #ccc;
+  padding: 15px;
+  /* padding-right: 15px; */
+  border-radius: 8px;
+  margin-top: 10px;
+  background: #f5f5f5;
+  margin-bottom: 20px;
+}
+
+.video-item iframe {
+  width: 100%;
+  height: 300px;
+  border-radius: 6px;
+  margin-top: 10px;
+}
+
+.quiz-item ul {
+  padding-left: 20px;
+  list-style: disc;
+}
+
+.quiz-item button {
+  background: #ff4d4d;
+  margin-top: 10px;
+}
+
+.quiz-question {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .quiz-question label,
+  .quiz-question input {
+    width: 100%;
+    display: block;
+  }  
+
+/* Footer */
+footer {
+  padding: 20px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  border-top: 1px solid #eee;
+  font-size: 0.85rem;
+  color: #888;
+  flex-shrink: 0;
+}
+
+.footer-links a {
+  margin-left: 20px;
+  color: #6c63ff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+

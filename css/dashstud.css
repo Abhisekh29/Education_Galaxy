@@ -1,0 +1,166 @@
+/* Basic Setup */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  html, body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: #f9f9f9;
+  }
+  
+  main {
+    flex: 1;
+  }
+  
+  /* Navbar */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  }
+  
+  .logo {
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: #6c63ff;
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .nav-links a {
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  
+  .nav-links a:first-child {
+    background-color: #6c63ff;
+    color: white;
+  }
+  
+  .nav-links a:last-child {
+    background-color: #ff4d4d;
+    color: white;
+  }
+  
+  /* Dashboard */
+  .dashboard-section {
+    padding: 40px 80px;
+  }
+  
+  .dashboard-section h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  .teacher-name {
+    margin-bottom: 30px;
+    font-weight: 500;
+  }
+  
+  .dashboard-actions {
+    margin-bottom: 30px;
+  }
+  
+  .btn-purple {
+    background: #6c63ff;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .btn-light,
+  .btn-dark {
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 500;
+    margin-right: 10px;
+    cursor: pointer;
+    text-align: center;
+    border: 1px solid transparent; /* Reset any existing border */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+    width: auto;
+  }
+  
+  /* Light button */
+   .btn-light {
+    background: #6c63ff;
+    color: white;
+    border: 1px solid #6c63ff; /* Blue border for light button */
+  }
+  
+   .btn-light:hover {
+    background: white;
+    color: #6c63ff;
+  }
+  
+  /* Dark button */
+   .btn-dark {
+    background: #ff0000;
+    color: white;
+    border: none; /* No border for dark button */
+  }
+  
+   .btn-dark:hover {
+    background: rgb(212, 0, 0); /* Slightly darker blue on hover */
+  }
+  
+  .courses-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .course-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    width: 280px;
+  }
+  
+  .course-card h3 {
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .course-card p {
+    margin-bottom: 15px;
+    color: #555;
+  }
+  
+  /* Footer */
+  footer {
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    border-top: 1px solid #eee;
+    font-size: 0.85rem;
+    color: #888; /* subtle grey */
+    flex-shrink: 0;
+  }
+  
+  .footer-links a {
+    margin-left: 20px;
+    color: #6c63ff;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  

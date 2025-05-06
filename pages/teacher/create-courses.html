@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Create Course | Education Galaxy</title>
+  <link rel="stylesheet" href="/css/create_course.css" />
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="logo">Education Galaxy</div>
+    <div class="nav-links">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="/logout">Logout</a>
+    </div>
+  </header>
+
+  <main class="create-course-section">
+    <form id="course-form" class="create-course-form">
+      <h2>Create a New Course</h2>
+
+      <div class="form-group">
+        <label for="course-title">Course Title</label>
+        <input type="text" id="course-title" placeholder="Enter course title" required>
+      </div>
+
+      <div class="form-group">
+        <label for="course-description">Course Description</label>
+        <textarea id="course-description" placeholder="Enter course description" required></textarea>
+      </div>
+
+      <hr />
+
+      <h4>Lecture Videos</h4>
+      <div class="form-group">
+        <input type="text" id="video-title" placeholder="Video Title">
+        <input type="text" id="video-url" placeholder="YouTube Video URL (https://www.youtube.com/watch?v=...)">
+        <button type="button" class="btn-add" onclick="addVideo()">Add Video</button>
+      </div>
+      <div id="videos-list" class="videos-container"></div>
+
+      <hr />
+
+      <h4>Quiz</h4>
+      <div class="form-group">
+        <input type="text" id="quiz-title" placeholder="Quiz Title">
+        <textarea id="quiz-description" placeholder="Quiz Description"></textarea>
+        <button type="button" class="btn-add" onclick="addQuiz()">Add Quiz</button>
+      </div>
+      <div id="quiz-list" class="quiz-container"></div>
+
+      <!-- Update this button to call publishCourse() -->
+    <button type="button" class="btn-purple" onclick="publishCourse()">Create Course</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Education Galaxy. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+    </div>
+  </footer>
+
+  <script src="/js/create_course.js"></script>
+</body>
+</html>
