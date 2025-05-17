@@ -57,7 +57,7 @@ function showToast(message) {
   setTimeout(() => {
     toast.style.opacity = 0;
     toast.style.visibility = 'hidden';
-  }, 3000); // Hide after 3 seconds
+  }, 3000);
 }
 
 async function deleteCourse(courseId) {
@@ -69,8 +69,8 @@ async function deleteCourse(courseId) {
     if (response.ok) {
       showToast('Course deleted successfully ✅');
       setTimeout(() => {
-        window.location.reload();  // Refresh after showing toast
-      }, 1500); // wait 1.5 seconds before refreshing
+        window.location.reload();
+      }, 1500);
     } else {
       showToast('Failed to delete course ❌');
     }
@@ -80,162 +80,231 @@ async function deleteCourse(courseId) {
   }
 }
 
-
-// Function to display course details in modal
 async function viewCourse(courseId) {
   try {
     const response = await fetch(`/api/courses/${courseId}`);
-    if (!response.ok) {
-      throw new Error('Error fetching course');
-    }
+    if (!response.ok) throw new Error('Error fetching course');
     const data = await response.json();
     const course = data.course;
 
-    // Populate modal with course details
     document.getElementById('courseTitle').textContent = course.title;
     document.getElementById('courseDescription').textContent = course.description;
 
-    // Embed videos with numbering and spacing
     const videoContainer = document.getElementById('videoContainer');
-    videoContainer.innerHTML = '';  // Clear previous videos
+    videoContainer.innerHTML = '';
     course.videos.forEach((video, index) => {
-      // Create a div for each video with some margin
-      const videoWrapper = document.createElement('div');
-      videoWrapper.style.marginBottom = '20px'; // Add space between videos
+      const wrapper = document.createElement('div');
+      wrapper.style.marginBottom = '20px';
 
-      // Create and add video number
-      const videoNumber = document.createElement('h3');
-      videoNumber.textContent = `Video ${index + 1}:`; // Number the videos
-      videoWrapper.appendChild(videoNumber);
+      const number = document.createElement('h3');
+      number.textContent = `Video ${index + 1}:`;
+      wrapper.appendChild(number);
 
-      // Create video title
-      const videoTitle = document.createElement('h3');
-      videoTitle.textContent = video.title;  // Display the video title
-      videoTitle.style.marginBottom = '10px'; // Add some space below the title
-      videoWrapper.appendChild(videoTitle);
+      const title = document.createElement('h3');
+      title.textContent = video.title;
+      title.style.marginBottom = '10px';
+      wrapper.appendChild(title);
 
-      // Embed video with smaller size and some margin below
-      const videoEmbed = document.createElement('iframe');
-      videoEmbed.setAttribute('width', '420');  // Reduced width for smaller player
-      videoEmbed.setAttribute('height', '240');  // Reduced height for smaller player
-      videoEmbed.setAttribute('src', video.url); // Access the 'url' property
-      videoEmbed.setAttribute('frameborder', '0');
-      videoEmbed.setAttribute('allowfullscreen', 'true');
-      videoEmbed.style.marginBottom = '15px';  // Add space below the video
-      videoWrapper.appendChild(videoEmbed);
+      const iframe = document.createElement('iframe');
+      iframe.setAttribute('width', '420');
+      iframe.setAttribute('height', '240');
+      iframe.setAttribute('src', video.url);
+      iframe.setAttribute('frameborder', '0');
+      iframe.setAttribute('allowfullscreen', 'true');
+      iframe.style.marginBottom = '15px';
+      wrapper.appendChild(iframe);
 
-      // Append the video wrapper to the video container
-      videoContainer.appendChild(videoWrapper);
+      videoContainer.appendChild(wrapper);
     });
 
-    // Display quizzes
     const quizContainer = document.getElementById('quizContainer');
-    quizContainer.innerHTML = '';  // Clear previous quizzes
+    quizContainer.innerHTML = '';
     if (course.quizzes.length > 0) {
       course.quizzes.forEach((quiz, index) => {
-        const quizElement = document.createElement('div');
-        quizElement.style.marginBottom = '30px';  // Add space between quizzes
-        quizElement.innerHTML = `
+        const div = document.createElement('div');
+        div.style.marginBottom = '30px';
+        div.innerHTML = `
           <h3>Quiz ${index + 1}: ${quiz.title}</h3>
           <p>${quiz.description}</p>
           <ul>
-            ${quiz.questions.map((question, qIndex) => {
-              return `
-                <li>
-                  <h3>${question.question}</h3>
-                  <ul>
-                    ${question.options.map((option, optionIndex) => {
-                      const isCorrect = optionIndex === question.correctAnswer;
-                      return `
-                        <li>
-                          ${option} ${isCorrect ? '(Correct)' : ''}
-                        </li>
-                      `;
-                    }).join('')}
-                  </ul>
-                </li>
-              `;
-            }).join('')}
+            ${quiz.questions.map((q, qIndex) => `
+              <li>
+                <h3>${q.question}</h3>
+                <ul>
+                  ${q.options.map((opt, optIdx) => `
+                    <li>${opt} ${optIdx === q.correctAnswer ? '(Correct)' : ''}</li>
+                  `).join('')}
+                </ul>
+              </li>
+            `).join('')}
           </ul>
         `;
-        quizContainer.appendChild(quizElement);
+        quizContainer.appendChild(div);
       });
     } else {
       quizContainer.innerHTML = '<p>No quizzes available for this course.</p>';
     }
 
-    // Show modal
-    const modal = document.getElementById('courseModal');
-    modal.style.display = 'block';
+    document.getElementById('courseModal').style.display = 'block';
   } catch (error) {
     console.error('Error fetching course:', error);
     alert('Failed to fetch course details');
   }
 }
 
-
-// Close the modal when clicking outside the modal content or on the close button
 function closeModal(event) {
   const modal = document.getElementById('courseModal');
-  
-  // If the click is outside the modal content or on the close button
   if (event.target === modal || event.target.classList.contains('close')) {
     modal.style.display = 'none';
   }
 }
 
-// Add event listener to close the modal when clicking outside or on the close button
 document.getElementById('courseModal').addEventListener('click', closeModal);
 
-
 document.addEventListener('DOMContentLoaded', () => {
-  const teacherNameSpan = document.getElementById('teacherName');  // Correct ID here
+  const teacherNameSpan = document.getElementById('teacherName');
   const coursesContainer = document.querySelector('.courses-container');
-
-  // Fetch teacher name (can be fetched from backend or local storage if needed)
-  const teacherName = "Mr. Abhisekh Roy";  // Static name for now
+  const teacherName = "Mr. Abhisekh Roy";
   teacherNameSpan.textContent = teacherName;
 
-  // Fetch courses from the backend API
-  async function fetchCourses() {
-      try {
-          const response = await fetch('/api/courses/all');
-          if (!response.ok) {
-              throw new Error('Error fetching courses');
-          }
-          const data = await response.json();
-          const courses = data.courses;
+  fetchCourses();
+  loadCourseOptions();
 
-          renderCourses(courses);
-      } catch (error) {
-          console.error('Error fetching courses:', error);
-          coursesContainer.innerHTML = '<p>Failed to load courses. Please try again later.</p>';
-      }
+  async function fetchCourses() {
+    try {
+      const response = await fetch('/api/courses/all');
+      if (!response.ok) throw new Error('Error fetching courses');
+      const data = await response.json();
+      renderCourses(data.courses);
+    } catch (error) {
+      console.error('Error fetching courses:', error);
+      coursesContainer.innerHTML = '<p>Failed to load courses. Please try again later.</p>';
+    }
   }
 
   function renderCourses(courses) {
-      coursesContainer.innerHTML = '';
+    coursesContainer.innerHTML = '';
+    if (courses.length === 0) {
+      coursesContainer.innerHTML = '<p>No courses yet. Click "Create Course" to add one.</p>';
+      return;
+    }
 
-      if (courses.length === 0) {
-          coursesContainer.innerHTML = '<p>No courses yet. Click "Create Course" to add one.</p>';
-          return;
+    courses.forEach(course => {
+      const card = document.createElement('div');
+      card.className = 'course-card';
+      card.innerHTML = `
+        <h3>${course.title}</h3>
+        <p>${course.description}</p>
+        <div class="course-actions">
+          <button class="btn-light" onclick="viewCourse('${course._id}')">View Course</button>
+          <button class="btn-dark" onclick="deleteCourse('${course._id}')">Delete</button>
+        </div>
+      `;
+      coursesContainer.appendChild(card);
+    });
+  }
+});
+
+async function loadCourseOptions() {
+  try {
+    const response = await fetch('/api/courses/all');
+    const data = await response.json();
+    const courses = data.courses;
+
+    const courseSelect = document.getElementById('filterCourse');
+    courseSelect.innerHTML = '<option value="">Select a Course</option>';
+    courses.forEach(course => {
+      const option = document.createElement('option');
+      option.value = course._id;
+      option.textContent = course.title;
+      courseSelect.appendChild(option);
+    });
+
+    courseSelect.addEventListener('change', async () => {
+      const selectedCourseId = courseSelect.value;
+      const quizSelect = document.getElementById('filterQuiz');
+      quizSelect.innerHTML = '';
+
+      if (!selectedCourseId) {
+        quizSelect.disabled = true;
+        quizSelect.innerHTML = '<option value="">Select Course First</option>';
+        return;
       }
 
-      courses.forEach(course => {
-          const card = document.createElement('div');
-          card.className = 'course-card';
-          card.innerHTML = `
-              <h3>${course.title}</h3>
-              <p>${course.description}</p>
-              <div class="course-actions">
-                  <button class="btn-light" onclick="viewCourse('${course._id}')">View Course</button>
-                  <button class="btn-dark" onclick="deleteCourse('${course._id}')">Delete</button>
-              </div>
-          `;
-          coursesContainer.appendChild(card);
-      });
+      const courseRes = await fetch(`/api/student/course/${selectedCourseId}`);
+      const courseData = await courseRes.json();
+
+      if (courseData.quizzes && courseData.quizzes.length > 0) {
+        quizSelect.disabled = false;
+        quizSelect.innerHTML = '<option value="">All Quizzes</option>';
+        courseData.quizzes.forEach(quiz => {
+          const option = document.createElement('option');
+          option.value = quiz._id;
+          option.textContent = quiz.title;
+          quizSelect.appendChild(option);
+        });
+      } else {
+        quizSelect.disabled = true;
+        quizSelect.innerHTML = '<option value="">No quizzes found</option>';
+      }
+    });
+  } catch (error) {
+    console.error('Error loading courses for dropdown:', error);
+  }
+}
+
+// Make loadQuizResults globally accessible
+window.loadQuizResults = async function () {
+  const courseId = document.getElementById('filterCourse').value;
+  const quizId = document.getElementById('filterQuiz').value;
+
+  let endpoint = '';
+  if (quizId) {
+    endpoint = `/api/teacher/quiz/${quizId}/results`;
+  } else if (courseId) {
+    endpoint = `/api/teacher/course/${courseId}/quiz-results`;
+  } else {
+    alert('Please select at least a course to view results.');
+    return;
   }
 
-  // Call the fetchCourses function to load the courses when the page loads
-  fetchCourses();
-});
+  try {
+    const response = await fetch(endpoint);
+    const results = await response.json();
+
+    const container = document.getElementById('quizResultsTable');
+    if (!results.length) {
+      container.innerHTML = '<p>No submissions found.</p>';
+      return;
+    }
+
+    let html = `<table>
+      <thead>
+        <tr>
+          <th>Student Name</th>
+          <th>Course</th>
+          <th>Quiz</th>
+          <th>Score</th>
+          <th>Submitted At</th>
+        </tr>
+      </thead>
+      <tbody>`;
+
+    results.forEach(result => {
+      html += `<tr>
+        <td>${result.studentName}</td>
+        <td>${result.courseTitle}</td>
+        <td>${result.quizTitle}</td>
+        <td>${result.score} / ${result.total}</td>
+        <td>${new Date(result.submittedAt).toLocaleString()}</td>
+      </tr>`;
+    });
+
+    html += `</tbody></table>`;
+    container.innerHTML = html;
+  } catch (error) {
+    console.error('Error loading quiz results:', error);
+    alert('Failed to load quiz results.');
+  }
+};
+

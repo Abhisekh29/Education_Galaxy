@@ -39,7 +39,7 @@ const connectDB = require('./config/db');
 const authRoutes = require('./routes/auth');
 const courseRoutes = require('./routes/courseRoutes');
 const studentRoutes = require('./routes/student');
-
+const teacherRoutes = require('./routes/teacher');
 const app = express();
 
 // Connect to MongoDB
@@ -56,6 +56,8 @@ app.use(bodyParser.json());
 app.use('/api', authRoutes);           // Authentication routes
 app.use('/api/courses', courseRoutes); // Course-related routes
 app.use('/api/student', studentRoutes); // Student routes
+app.use('/api/teacher', teacherRoutes);  // Teacher routes
+
 
 // Test route
 app.get('/', (req, res) => {

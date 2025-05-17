@@ -92,8 +92,8 @@ main {
   margin-right: 10px;
   cursor: pointer;
   text-align: center;
-  border: 1px solid transparent; /* Reset any existing border */
-  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+  border: 1px solid transparent;
+  transition: background-color 0.3s ease, color 0.3s ease;
   width: auto;
 }
 
@@ -101,7 +101,7 @@ main {
 .course-actions .btn-light {
   background: white;
   color: #6c63ff;
-  border: 1px solid #6c63ff; /* Blue border for light button */
+  border: 1px solid #6c63ff;
 }
 
 .course-actions .btn-light:hover {
@@ -113,11 +113,11 @@ main {
 .course-actions .btn-dark {
   background: #ff0000;
   color: white;
-  border: none; /* No border for dark button */
+  border: none;
 }
 
 .course-actions .btn-dark:hover {
-  background: rgb(212, 0, 0); /* Slightly darker blue on hover */
+  background: rgb(212, 0, 0);
 }
 
 .courses-container {
@@ -157,7 +157,7 @@ footer {
   background: #fff;
   border-top: 1px solid #eee;
   font-size: 0.85rem;
-  color: #888; /* subtle grey */
+  color: #888;
   flex-shrink: 0;
 }
 
@@ -168,7 +168,6 @@ footer {
   font-weight: 500;
 }
 
-
 /* Modal */
 .modal {
   position: fixed;
@@ -178,22 +177,22 @@ footer {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0, 0, 0, 0.6); /* Slightly darker background */
+  background-color: rgba(0, 0, 0, 0.6);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .modal-content {
-  background-color: #fff;
+  background-color: #f9f9f9;
   margin: 0 auto;
   padding: 40px;
   border-radius: 12px;
   width: 90%;
   max-width: 800px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Adding shadow for depth */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   position: relative;
-  animation: modal-fade-in 0.3s ease-in-out; /* Smooth fade-in */
+  animation: modal-fade-in 0.3s ease-in-out;
 }
 
 @keyframes modal-fade-in {
@@ -218,31 +217,119 @@ footer {
 
 .close:hover,
 .close:focus {
-  color: #ff4d4d; /* Red color on hover for the close button */
+  color: #ff4d4d;
 }
 
-/* Modal Content */
-
 .modal-content p {
-  font-size: 1rem;
+  font-size: 0.95rem;
   color: #555;
   margin-bottom: 20px;
 }
 
 /* Modal Title */
 .modal-title {
-  font-size: 2rem; /* Increased size */
-  color: #6c63ff; /* Change the color to the primary theme color */
-  font-weight: 700; /* Bold text */
+  font-size: 1.5rem;
+  color: #6c63ff;
+  font-weight: 700;
   margin-bottom: 20px;
-  text-align: center; /* Center the title */
+  text-align: center;
 }
 
 /* Course Description */
 #courseDescription {
-  font-size: 1.2rem; /* Set a reasonable size */
-  color: #555; /* A lighter grey for the description */
+  font-size: 1.1rem;
+  color: #555;
   margin-bottom: 20px;
-  text-align: center; /* Center the description */
-  line-height: 1.6; /* Increase line spacing for readability */
+  text-align: center;
+  line-height: 1.6;
+}
+
+/* Quiz Submissions Section */
+#quiz-submissions {
+  margin-top: 40px;
+  padding: 40px 80px;
+  background: #f9f9f9;
+  text-align: left;
+  font-size: 1rem;
+}
+
+/* Section Heading */
+#quiz-submissions h2 {
+  font-size: 1.8rem;
+  /* font-weight: 600; */
+  color: #6c63ff;
+  margin-bottom: 20px;
+}
+
+/* Filter Controls */
+.filter-container {
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.filter-container select,
+.filter-container input {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  background: #f9f9f9;
+  transition: border-color 0.3s ease;
+}
+
+/* Load Submissions Button */
+#loadSubmissionsBtn {
+  background: #6c63ff;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#loadSubmissionsBtn:hover {
+  background-color: #574de0;
+}
+
+/* Quiz Results Table */
+#quizResultsTable {
+  overflow-x: auto;
+  margin-top: 20px;
+}
+
+#quizResultsTable table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+#quizResultsTable th,
+#quizResultsTable td {
+  padding: 10px 14px;
+  text-align: left;
+  font-size: 0.85rem;
+}
+
+#quizResultsTable th {
+  background-color: #6c63ff;
+  color: #fff;
+  font-weight: 600;
+}
+
+#quizResultsTable td {
+  border-bottom: 1px solid #e0e0e0;
+  color: #444;
+}
+
+#quizResultsTable tr:nth-child(even) {
+  background-color: #f4f4f4;
+}
+
+#quizResultsTable tr:hover {
+  background-color: #e8e8ff;
 }
